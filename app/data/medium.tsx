@@ -20,11 +20,11 @@ class Medium {
   }
 
   async refresh() {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-    var requestOptions = {
-      method: "get",
-      headers: myHeaders,
+    const requestOptions: RequestInit = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
       redirect: "follow",
     };
 
