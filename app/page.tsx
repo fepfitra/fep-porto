@@ -1,6 +1,22 @@
+"use client";
 import Image from "next/image";
+import Medium from "./data/medium";
+import { useEffect } from "react";
 
 export default function Home() {
+
+  useEffect(() => {
+    const fetchMedium = async () => {
+      const medium = new Medium();
+      await medium.refresh();
+      medium.data.forEach((item) => {
+        console.log(item.data);
+      })
+    }
+    fetchMedium();
+
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
